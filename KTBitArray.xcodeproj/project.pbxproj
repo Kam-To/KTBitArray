@@ -9,12 +9,28 @@
 /* Begin PBXBuildFile section */
 		3AC64D86268F4441005E8FEB /* KTBitArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC64D85268F4441005E8FEB /* KTBitArray.h */; };
 		3AC64D88268F4441005E8FEB /* KTBitArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC64D87268F4441005E8FEB /* KTBitArray.m */; };
+		3AC64D95268F46D0005E8FEB /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC64D94268F46D0005E8FEB /* Tests.m */; };
+		3AC64D97268F46D0005E8FEB /* libKTBitArray.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC64D82268F4441005E8FEB /* libKTBitArray.a */; };
+		3AC64D9D268F4712005E8FEB /* KTBitArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC64D87268F4441005E8FEB /* KTBitArray.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3AC64D98268F46D0005E8FEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AC64D7A268F4441005E8FEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AC64D81268F4441005E8FEB;
+			remoteInfo = KTBitArray;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3AC64D82268F4441005E8FEB /* libKTBitArray.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKTBitArray.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC64D85268F4441005E8FEB /* KTBitArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KTBitArray.h; sourceTree = "<group>"; };
 		3AC64D87268F4441005E8FEB /* KTBitArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KTBitArray.m; sourceTree = "<group>"; };
+		3AC64D92268F46D0005E8FEB /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AC64D94268F46D0005E8FEB /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		3AC64D96268F46D0005E8FEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,6 +41,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3AC64D8F268F46D0005E8FEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AC64D97268F46D0005E8FEB /* libKTBitArray.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -32,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				3AC64D84268F4441005E8FEB /* KTBitArray */,
+				3AC64D93268F46D0005E8FEB /* Tests */,
 				3AC64D83268F4441005E8FEB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				3AC64D82268F4441005E8FEB /* libKTBitArray.a */,
+				3AC64D92268F46D0005E8FEB /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,6 +77,15 @@
 				3AC64D87268F4441005E8FEB /* KTBitArray.m */,
 			);
 			path = KTBitArray;
+			sourceTree = "<group>";
+		};
+		3AC64D93268F46D0005E8FEB /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3AC64D94268F46D0005E8FEB /* Tests.m */,
+				3AC64D96268F46D0005E8FEB /* Info.plist */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,6 +119,24 @@
 			productReference = 3AC64D82268F4441005E8FEB /* libKTBitArray.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		3AC64D91268F46D0005E8FEB /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AC64D9A268F46D0005E8FEB /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				3AC64D8E268F46D0005E8FEB /* Sources */,
+				3AC64D8F268F46D0005E8FEB /* Frameworks */,
+				3AC64D90268F46D0005E8FEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3AC64D99268F46D0005E8FEB /* PBXTargetDependency */,
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = 3AC64D92268F46D0005E8FEB /* Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -93,6 +146,9 @@
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					3AC64D81268F4441005E8FEB = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					3AC64D91268F46D0005E8FEB = {
 						CreatedOnToolsVersion = 12.5;
 					};
 				};
@@ -111,9 +167,20 @@
 			projectRoot = "";
 			targets = (
 				3AC64D81268F4441005E8FEB /* KTBitArray */,
+				3AC64D91268F46D0005E8FEB /* Tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3AC64D90268F46D0005E8FEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3AC64D7F268F4441005E8FEB /* Sources */ = {
@@ -124,7 +191,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3AC64D8E268F46D0005E8FEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AC64D9D268F4712005E8FEB /* KTBitArray.m in Sources */,
+				3AC64D95268F46D0005E8FEB /* Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3AC64D99268F46D0005E8FEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AC64D81268F4441005E8FEB /* KTBitArray */;
+			targetProxy = 3AC64D98268F46D0005E8FEB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3AC64D89268F4441005E8FEB /* Debug */ = {
@@ -258,6 +342,38 @@
 			};
 			name = Release;
 		};
+		3AC64D9B268F46D0005E8FEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kam.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3AC64D9C268F46D0005E8FEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kam.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -275,6 +391,15 @@
 			buildConfigurations = (
 				3AC64D8C268F4441005E8FEB /* Debug */,
 				3AC64D8D268F4441005E8FEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AC64D9A268F46D0005E8FEB /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AC64D9B268F46D0005E8FEB /* Debug */,
+				3AC64D9C268F46D0005E8FEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

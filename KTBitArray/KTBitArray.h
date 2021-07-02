@@ -8,5 +8,8 @@
 #import <Foundation/Foundation.h>
 
 @interface KTBitArray : NSObject
-
+- (nullable instancetype)initWithBitCount:(NSUInteger)bitCount;
+- (NSUInteger)count;
+- (BOOL)valueAtIndex:(NSUInteger)index;
+- (void)setValue:(BOOL)value atIndex:(NSUInteger)index;
 @end
