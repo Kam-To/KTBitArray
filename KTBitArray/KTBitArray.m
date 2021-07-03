@@ -10,6 +10,7 @@
 @interface KTBitArray() {
     Byte *_region;
     NSUInteger _bitCount;
+    NSUInteger _trueCount;
 }
 @end
 
@@ -29,6 +30,14 @@ static const size_t byteSize = 8;
     return _bitCount;
 }
 
+- (NSUInteger)trueCount {
+    return _trueCount;
+}
+
+- (NSUInteger)falseCount {
+    return _bitCount - _trueCount;
+}
+
 - (BOOL)valueAtIndex:(NSUInteger)index {
     if (index >= _bitCount) @throw [self p_outOfBoundsExcpetion:index];
     NSUInteger byteIdx = index / byteSize;
@@ -42,6 +51,14 @@ static const size_t byteSize = 8;
     if (index >= _bitCount) @throw [self p_outOfBoundsExcpetion:index];
     NSUInteger byteIdx = index / byteSize;
     Byte byte = _region[byteIdx];
+    
+    BOOL oldValue = [self valueAtIndex:index];
+    if (value && !oldValue) {
+        _trueCount++;
+    } else if (!value && oldValue) {
+        _trueCount--;
+    }
+    
     int shift = (index % byteSize);
     Byte newByte = (~(1 << shift) & byte) | (value << shift);
     _region[byteIdx] = newByte;

@@ -10,6 +10,8 @@
 @interface KTBitArray : NSObject
 - (nullable instancetype)initWithBitCount:(NSUInteger)bitCount;
 - (NSUInteger)count;
+- (NSUInteger)trueCount;
+- (NSUInteger)falseCount;
 - (BOOL)valueAtIndex:(NSUInteger)index;
 - (void)setValue:(BOOL)value atIndex:(NSUInteger)index;
 @end

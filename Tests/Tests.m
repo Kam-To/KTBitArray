@@ -24,26 +24,34 @@
 
 - (void)testExample {
     NSUInteger count = 50;
-    KTBitArray *bitArray = [[KTBitArray alloc] initWithBitCount:count];
-    XCTAssert(bitArray.count == count, @"error in setting bit count");
     
     NSSet<NSNumber *> *setTrueIndex = [NSSet setWithArray:@[
         @15, @16, @19, @22, @42, @16
     ]];
     
+    NSSet<NSNumber *> *setFalseIndex = [NSSet setWithArray:@[
+        @14, @15, @17, @19, @29, @21, @42
+    ]];
+    
+
+    KTBitArray *bitArray = [[KTBitArray alloc] initWithBitCount:count];
+    XCTAssert(bitArray.count == count, @"error in setting bit count");
+    
     [setTrueIndex enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, BOOL * _Nonnull stop) {
         [bitArray setValue:true atIndex:obj.unsignedIntegerValue];
     }];
     
+    XCTAssert(setTrueIndex.count == bitArray.trueCount, @"%zd != %zd", setTrueIndex.count, bitArray.trueCount);
+    
+    [bitArray setValue:true atIndex:16];
+
+    XCTAssert(setTrueIndex.count == bitArray.trueCount, @"%zd != %zd", setTrueIndex.count, bitArray.trueCount);
+    
     for (NSUInteger i = 0; i < count; i++) {
         BOOL valueToCompare = ([setTrueIndex containsObject:@(i)]) ? true : false;
         BOOL value = [bitArray valueAtIndex:i];
-        XCTAssert(valueToCompare == value, @"%d == %d(%zd)", valueToCompare, value, i);
+        XCTAssert(valueToCompare == value, @"%d != %d(%zd)", valueToCompare, value, i);
     }
-    
-    NSSet<NSNumber *> *setFalseIndex = [NSSet setWithArray:@[
-        @14, @15, @17, @29, @21, @42
-    ]];
     
     [setFalseIndex enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, BOOL * _Nonnull stop) {
         [bitArray setValue:false atIndex:obj.unsignedIntegerValue];
@@ -55,8 +63,13 @@
             valueToCompare = false;
         }
         BOOL value = [bitArray valueAtIndex:i];
-        XCTAssert(valueToCompare == value, @"%d == %d(%zd)", valueToCompare, value, i);
+        XCTAssert(valueToCompare == value, @"%d != %d(%zd)", valueToCompare, value, i);
     }
+    
+    NSMutableSet *intersect = [NSMutableSet setWithSet:setTrueIndex];
+    [intersect intersectSet:setFalseIndex];
+    
+    XCTAssert((setTrueIndex.count - intersect.count) == bitArray.trueCount, @"%zd != %zd", setTrueIndex.count, bitArray.trueCount);
 }
 
 - (void)testPerformanceExample {
