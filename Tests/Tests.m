@@ -37,6 +37,16 @@
     KTBitArray *bitArray = [[KTBitArray alloc] initWithBitCount:count];
     XCTAssert(bitArray.count == count, @"error in setting bit count");
     
+    for (NSUInteger i = 0; i < count; i++) {
+        [bitArray setValue:true atIndex:i];
+        XCTAssert(bitArray.trueCount == (i + 1), @"trueCount(%zd) not matching case(%zd)", bitArray.trueCount, i);
+    }
+    
+    for (NSUInteger i = 0; i < count; i++) {
+        [bitArray setValue:false atIndex:i];
+        XCTAssert(bitArray.falseCount == (i + 1), @"falseCount(%zd) not matching case(%zd)", bitArray.falseCount, i);
+    }
+
     [setTrueIndex enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, BOOL * _Nonnull stop) {
         [bitArray setValue:true atIndex:obj.unsignedIntegerValue];
     }];
@@ -70,13 +80,6 @@
     [intersect intersectSet:setFalseIndex];
     
     XCTAssert((setTrueIndex.count - intersect.count) == bitArray.trueCount, @"%zd != %zd", setTrueIndex.count, bitArray.trueCount);
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
 }
 
 @end

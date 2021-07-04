@@ -20,7 +20,7 @@ static const size_t byteSize = 8;
     if (self = [super init]) {
         _bitCount = bitCount;
         size_t byteRequired = bitCount / byteSize + ((bitCount % byteSize) > 0 ? 1 : 0);
-        _region = malloc(byteRequired);
+        _region = calloc(1, byteRequired);
         if (_region == NULL) return nil;
     }
     return self;
