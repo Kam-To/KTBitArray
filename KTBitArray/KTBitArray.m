@@ -72,7 +72,7 @@ static const size_t byteSize = 8;
     }
 }
 
-- (NSException *)p_outOfBoundsExcpetion:(NSUInteger)index {
+- (NSException *)p_outOfBoundsExcpetion:(NSUInteger)index __attribute__((objc_direct)) {
     NSString *reason = [NSString stringWithFormat:@"index %zd beyond bounds for empty", index];
     return [NSException exceptionWithName:@"KTBitArrayException" reason:reason userInfo:nil];
 }

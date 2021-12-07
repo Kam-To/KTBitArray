@@ -8,10 +8,10 @@
 #import <Foundation/Foundation.h>
 
 @interface KTBitArray : NSObject
-- (nullable instancetype)initWithBitCount:(NSUInteger)bitCount;
-- (NSUInteger)count;
-- (NSUInteger)trueCount;
-- (NSUInteger)falseCount;
-- (BOOL)valueAtIndex:(NSUInteger)index;
-- (void)setValue:(BOOL)value atIndex:(NSUInteger)index;
+- (nullable instancetype)initWithBitCount:(NSUInteger)bitCount __attribute__((objc_direct));
+- (NSUInteger)count __attribute__((objc_direct));
+- (NSUInteger)trueCount __attribute__((objc_direct));
+- (NSUInteger)falseCount __attribute__((objc_direct));
+- (BOOL)valueAtIndex:(NSUInteger)index __attribute__((objc_direct));
+- (void)setValue:(BOOL)value atIndex:(NSUInteger)index __attribute__((objc_direct));
 @end
